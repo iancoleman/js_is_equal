@@ -11,7 +11,8 @@ isEqual = new (function() {
                 return false;
             }
             for (var i=0; i<a.length; i++) {
-                if (a[i] !== b[i]) {
+                var equal = checkEquality(a[i], b[i]);
+                if (!equal) {
                     return false;
                 }
             }
@@ -33,8 +34,8 @@ isEqual = new (function() {
             }
             // check all values of keys match
             for (key in a) {
-                var isEqual = checkEquality(a[key], b[key]);
-                if (!isEqual) {
+                var equal = checkEquality(a[key], b[key]);
+                if (!equal) {
                     return false;
                 }
             }
